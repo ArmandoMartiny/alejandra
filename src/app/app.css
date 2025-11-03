@@ -1,0 +1,85 @@
+/* COMPONENTE: src/app/app.css */
+.container {
+  text-align: center;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #d6336c;
+  margin-bottom: 20px;
+}
+
+.poema {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.btn-amor {
+  background: #ff4d6d;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+  z-index: 3; /* por encima de fondos */
+}
+.btn-amor:hover {
+  transform: scale(1.1);
+}
+
+/* Corazones animados: no bloquean clics */
+.corazones {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.corazon {
+  position: absolute;
+  bottom: 0;
+  font-size: 2rem;
+  animation: subir 4s linear forwards;
+}
+@keyframes subir {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Helados de fondo: detrás de todo, no bloquean */
+.helados {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.helado {
+  position: absolute;
+  font-size: 2rem;
+  animation: flotar 10s infinite linear;
+}
+.helado:nth-child(odd) {
+  animation-duration: 12s;
+}
+@keyframes flotar {
+  from {
+    transform: translateY(100vh);
+    left: 10vw;
+  }
+  to {
+    transform: translateY(-10vh);
+    left: 80vw;
+  }
+}
